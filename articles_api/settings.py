@@ -79,10 +79,16 @@ WSGI_APPLICATION = 'articles_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#postgres://gbncbpqfuqmbmo:e34db97ede1e2705dd0fd6d63f0221cacc394690867e6aa3aad84125b04abae7@ec2-54-147-36-107.compute-1.amazonaws.com:5432/dlpu9q8pvoia3
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dlpu9q8pvoia3',
+        'HOST': 'ec2-54-147-36-107.compute-1.amazonaws.com',
+        'PORT': 5432 ,
+        'USER': 'gbncbpqfuqmbmo',
+        'PASSWORD': 'e34db97ede1e2705dd0fd6d63f0221cacc394690867e6aa3aad84125b04abae7'
     }
 }
 # add this
