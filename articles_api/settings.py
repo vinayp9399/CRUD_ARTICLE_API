@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-gv$5)d&$nmzwt$+u^ym25i54womkjm9-u-cv!*l9v2m#x3pg7+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'crud-article-api1.herokuapp.com']
 
 
 # Application definition
@@ -86,9 +86,9 @@ DATABASES = {
     }
 }
 # add this
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#import dj_database_url
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
