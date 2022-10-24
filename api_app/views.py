@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CartItemSerializer
+from .serializers import ArticleSerializer
 from .models import Article_details
 
 
@@ -11,15 +11,15 @@ class Articles(APIView):
     def get(self, request, id=None):
         if id:
             item = Article_details.objects.get(id=id)
-            serializer = CartItemSerializer(item)
+            serializer = ArticleSerializer(item)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
         items = Article_details.objects.all()
-        serializer = CartItemSerializer(items, many=True)
+        serializer = ArticleSerializer(items, many=True)
         return Response({"status": "success","data": serializer.data}, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = CartItemSerializer(data=request.data)
+        serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
@@ -28,7 +28,7 @@ class Articles(APIView):
 
     def patch(self, request, id=None):
         item = Article_details.objects.get(id=id)
-        serializer = CartItemSerializer(item, data=request.data, partial=True)
+        serializer = ArticleSerializer(item, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
